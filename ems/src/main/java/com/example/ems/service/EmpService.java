@@ -26,7 +26,7 @@ public class EmpService {
         return ob.findAll();
     }
 
-    public Employee updateEmployee(Long id, Employee employeeDetails) {
+    public Employee updateEmployee(Employee employeeDetails, Long id) {
         Employee employee = getEmployeeById(id); 
         employee.setFirstName(employeeDetails.getFirstName());
         employee.setLastName(employeeDetails.getLastName());

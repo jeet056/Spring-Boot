@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
-
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/employees")
 public class EmpControl {
@@ -37,7 +37,7 @@ public class EmpControl {
 
     @PutMapping("/{id}")
     public ResponseEntity<Employee> updateEmployee(@PathVariable Long id, @Valid @RequestBody Employee employeeDetails) {
-        Employee updatedEmployee = employeeService.updateEmployee(id, employeeDetails);
+        Employee updatedEmployee = employeeService.updateEmployee(employeeDetails, id);
         return new ResponseEntity<>(updatedEmployee, HttpStatus.OK); // 200
     }
 
